@@ -3,6 +3,7 @@ package ejercicio04.clases;
 import java.util.ArrayList;
 
 
+
 public class Vivienda {
 	
 	private static int contViviendas = 0;
@@ -11,8 +12,10 @@ public class Vivienda {
 	private ArrayList<Persona> personas;
 	private ArrayList<Mueble> muebles;
 	
-	public Vivienda (Direccion direccion) {
+	public Vivienda (String calle, int altura, int piso, String departamento) {
 		contViviendas++;
+		
+		Direccion direccion = new Direccion(calle, altura, piso, departamento);
 		
 		setDireccion(direccion);
 		setNumeroDeVivienda(contViviendas);
@@ -33,12 +36,12 @@ public class Vivienda {
 	
 	
 	public void mostrarVivienda() {
-		System.out.println("Vivienda " + numeroDeVivienda + ": \n\n"
-				+ "Direccion: " + this.direccion.getDireccion()
-				+ "Personas: ");
+		System.out.println("\nVivienda " + numeroDeVivienda + ": \n"
+				+ "\nDireccion: " + this.direccion.getDireccion()
+				+ "\nPersonas: ");
 		
 		mostrarPersonas();
-		System.out.println("Muebles: ");
+		System.out.println("\nMuebles: ");
 		mostrarMuebles();
 	}
 	
@@ -52,6 +55,19 @@ public class Vivienda {
 		for (Mueble mueble : muebles) {
 			mueble.mostrarMueble();
 		}
+	}
+	
+	public void vaciarListas() {
+		this.personas.clear();
+		this.muebles.clear();
+	}
+	
+	public int cantidadDePersonas() {
+		return this.personas.size();
+	}
+	
+	public int cantidadDeMuebles() {
+		return this.muebles.size();
 	}
 	
 	public Direccion getDireccion() {
@@ -70,6 +86,13 @@ public class Vivienda {
 		this.numeroDeVivienda = numeroDeVivienda;
 	}
 	
+	public ArrayList<Persona> getListaPersonas(){
+		return personas;
+	}
+	
+	public ArrayList<Mueble> getListaMuebles(){
+		return muebles;
+	}
 	
 
 }

@@ -7,9 +7,9 @@ public class Email {
 
 	
 	public Email (String emailCompleto) {
-		
-		setCuenta(emailCompleto.split("@")[0]);
-		setDominio(emailCompleto.split("@")[1]);
+		String[] mail = emailCompleto.split("@");
+		setCuenta(mail[0]);
+		setDominio(mail[1]);
 		
 	}
 

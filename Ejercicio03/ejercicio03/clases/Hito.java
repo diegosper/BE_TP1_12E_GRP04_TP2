@@ -1,15 +1,52 @@
 package ejercicio03.clases;
 
-import java.sql.Date;
 import java.util.ArrayList;
+
+import ejercicio01.clases.*;
 
 public class Hito {
 
 	
-	private Date fecha;
+	private String fecha;
 	private String descripcion;
-	ArrayList<Persona> personasInvolucradas;
+	private ArrayList<Persona> personasInvolucradas;
+	
+	public Hito (String fecha, String descripcion){
+		setFecha(fecha);
+		setDescripcion(descripcion);		
+		personasInvolucradas = new ArrayList<Persona>();
+	}
 	
 	
-//	public Hito
+	public void agregarPersona (Persona persona) {
+		personasInvolucradas.add(persona);
+	}
+	
+	public void mostrarTodo(){
+		System.out.println("Fecha: " + getFecha());
+		System.out.println("Descripcion: " + getDescripcion());
+		
+		for(int i=0; i<personasInvolucradas.size(); i++){
+			personasInvolucradas.get(i).mostrarTodo();
+		}		
+	}	
+	
+	
+
+	public String getFecha() {
+		return fecha;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	private void setFecha(String fecha) {
+		this.fecha = fecha;
+	}
+
+	private void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	
 }
